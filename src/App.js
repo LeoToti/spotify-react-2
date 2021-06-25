@@ -1,4 +1,6 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import './styles/styles.css'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Player from "./components/Player";
@@ -7,7 +9,7 @@ import Home from "./components/Home";
 import { Row } from "react-bootstrap";
 import Artist from "./components/Artist";
 import Album from "./components/Album";
-
+import Favourites from './components/Favourites.jsx'
 let headers = new Headers({
   "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   "X-RapidAPI-Key": "222902beabmshb95a65b737cead6p1f3ac9jsn23ced94c0d20",
@@ -23,7 +25,7 @@ class App extends React.Component {
       try {
         let response = await fetch(
           "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
-            string,
+          string,
           {
             method: "GET",
             headers,
@@ -52,6 +54,11 @@ class App extends React.Component {
               path="/"
               exact
               render={() => <Home searchResults={this.state.searchResults} />}
+            />
+            <Route
+              path="/favorites"
+              exact
+              render={() => <Favourites />}
             />
             <Route path="/artist/:id" component={Artist} />
             <Route path="/album/:id" component={Album} />
