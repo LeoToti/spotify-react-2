@@ -25,13 +25,12 @@ class Album extends React.Component {
         songs: []
     };
 
-    componentDidMount = async () => {
+    componentDidMount() {
         let albumId = this.props.match.params.id;
-        await this.props.fetch_Album(albumId);
-        /*   this.setState({ album: this.props.search.album });
+        this.props.fetch_Album(albumId);
+        /* this.setState({ album: this.props.search.album });
         this.setState({ songs: this.props.search.album.tracks.data }); */
-        console.log(this.props.search.album);
-    };
+    }
 
     render() {
         return (
@@ -65,7 +64,7 @@ class Album extends React.Component {
                     <div className="col-md-8 p-5">
                         <Row>
                             <div className="col-md-10 mb-5" id="trackList">
-                                {this.props.search.album.tracks.data.length > 0
+                                {this.props.search.album.tracks?.data.length > 0
                                     ? this.props.search.album.tracks.data.map((song) => (
                                           <Song songs={this.props.search.album.tracks.data} albumImage={this.props.search.album.cover} track={song} key={song.id} />
                                       ))

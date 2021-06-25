@@ -2,6 +2,7 @@ import { initialState } from "../store";
 
 export const searchReducer = (state = initialState.search, action) => {
 
+    console.log(action)
     switch (action.type) {
         case 'ADD_SEARCH_RESULTS':
 
