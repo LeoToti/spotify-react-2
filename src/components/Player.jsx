@@ -28,13 +28,16 @@ class Player extends Component {
         return (
             <div className="container-fluid fixed-bottom bg-container pt-1">
                 <Row>
-                    <div className="col-lg-10 offset-lg-2">
-                        <Row className="d-flex ">
-                            <div className="d-flex justify-content-right">
-                                <img src={this.props.queue.queueImage} height="50px" width="50px" alt="" />
-                                <span style={{ color: "white" }}>{this.props.queue.currentQueue.length > 0 ? this.props.queue.currentQueue[this.props.queue.currentSong].title : ""} </span>
+                    <div className="col-lg-10 offset-lg-2 offset-md-2">
+                        <Row>
+                            <div className=" col-md-3 col-lg-3">
+                                <div className="d-flex justify-content-start align-items-center no-wrap">
+                                    <img src={this.props.queue.queueImage} height="60px" width="60px" alt="" />
+
+                                    <div className="pl-2 songName">{this.props.queue.currentQueue.length > 0 ? this.props.queue.currentQueue[this.props.queue.currentSong].title : ""} </div>
+                                </div>
                             </div>
-                            <div className="col-6 col-md-4 col-lg-2 offset-3 offset-md-4 offset-lg-5 playerControls mt-1">
+                            <div className=" col-md-3 col-lg-3 offset-md-1 offset-lg-1 playerControls">
                                 <Row>
                                     <a onClick={() => console.log("I am here")}>
                                         <img src="/playerbuttons/Shuffle.png" alt="shuffle" />
@@ -54,7 +57,7 @@ class Player extends Component {
                                 </Row>
                             </div>
                         </Row>
-                        <Row className="justify-content-center playBar py-3">
+                        <Row className="justify-content-center playBar ">
                             <div className="col-8 col-md-6">
                                 <div id="progress">
                                     <div className="progress-bar" role="progressbar" aria-valuenow={0} aria-valuemin={0} aria-valuemax={100}></div>

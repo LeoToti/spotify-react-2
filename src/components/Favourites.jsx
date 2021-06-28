@@ -52,34 +52,27 @@ export class Favourites extends Component {
 
                 <>
                     <Row>
-                        <Col xs={10}>
-                            <div id="rock">
-                                <h2>Your Favourites</h2>
-                                <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="favoritesSection">
-                                    {this.props.like.favorites.length > 0 ? (
-                                        <div className="col-10 mb-5" id="trackList">
-                                            {this.props.like.favorites.map((song) => (
-                                                <div className="py-3 this.props.trackHover">
-                                                    <MdFavorite onClick={() => this.handleFavorite(song)} style={{ color: "red" }} />
-                                                    <span
-                                                        className="card-title this.props.trackHover px-3"
-                                                        onClick={() => this.handleQueue(this.props.like.favorites, song.id)}
-                                                        style={{ color: "white" }}
-                                                    >
-                                                        {song.title}
-                                                    </span>
-                                                    <small className="duration" style={{ color: "white" }}>
-                                                        {Math.floor(parseInt(song.duration) / 60)}:
-                                                        {parseInt(song.duration) % 60 < 10 ? "0" + (parseInt(song.duration) % 60) : parseInt(song.duration) % 60}
-                                                    </small>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ) : (
-                                        "No current Favourites"
-                                    )}
-                                </Row>
-                            </div>
+                        <Col xs={10} className="mt-5 text-white">
+                            <h2>Your Favourites</h2>
+                            <Row className="imgLinks py-3" id="favoritesSection">
+                                {this.props.like.favorites.length > 0 ? (
+                                    <div className="col-10 mb-5" id="trackList">
+                                        {this.props.like.favorites.map((song) => (
+                                            <div className="py-3 this.props.trackHover">
+                                                <MdFavorite className="cursor" onClick={() => this.handleFavorite(song)} style={{ color: "red" }} />
+                                                <span className="card-title this.props.trackHover px-3" onClick={() => this.handleQueue(this.props.like.favorites, song.id)} style={{ color: "white" }}>
+                                                    {song.title}
+                                                </span>
+                                                <small className="duration" style={{ color: "white" }}>
+                                                    {Math.floor(parseInt(song.duration) / 60)}:{parseInt(song.duration) % 60 < 10 ? "0" + (parseInt(song.duration) % 60) : parseInt(song.duration) % 60}
+                                                </small>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div style={{ paddingInline: "15px" }}>No current Favourites</div>
+                                )}
+                            </Row>
                         </Col>
                     </Row>
                 </>

@@ -49,7 +49,7 @@ class Song extends React.Component {
     render() {
         return (
             <div className="py-3 this.props.trackHover">
-                <MdFavorite onClick={() => this.handleFavorite(this.props.track)} style={{ color: this.state.selected ? "red" : "white" }} />
+                <MdFavorite className="cursor" onClick={() => this.handleFavorite(this.props.track)} style={{ color: this.state.selected ? "red" : "white" }} />
                 <span
                     className="card-title this.props.trackHover px-3"
                     onClick={() => this.handleQueue(this.props.albumImage, this.props.songs, this.props.track.id)}
