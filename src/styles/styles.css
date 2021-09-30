@@ -45,3 +45,7 @@
 .cursor {
     cursor: pointer;
 }
+
+.options {
+    font-size: large;
+}
