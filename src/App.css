@@ -16,6 +16,9 @@ body {
     background-color: black;
     z-index: 1200;
 }
+.options {
+    font-size: large;
+}
 
 .navbar.fixed-left .navbar-collapse .navbar-nav a {
     color: rgb(145, 145, 145) !important;
